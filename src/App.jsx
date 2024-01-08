@@ -1,3 +1,4 @@
+import { Toaster } from "react-hot-toast";
 import Feed from "./Feed";
 import Nav from "./Nav";
 
@@ -39,6 +40,7 @@ const App = () => {
         <Nav />
         <Page />
       </main>
+      <Toaster />
     </div>
   );
 };

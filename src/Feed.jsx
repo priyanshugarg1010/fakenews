@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import toast from "react-hot-toast";
 
 const Feed = () => {
   const [searchedText, setSearchedText] = useState("");
@@ -40,11 +41,16 @@ const Feed = () => {
               setSearchEx(false);
             }}
             required
-            className={`search_input peer ${searchEx ? "search_executed" : ""}`}
+            className={`search_input   peer ${
+              searchEx ? "search_executed" : ""
+            }`}
           />
         </form>
+
         {searchEx && isFakeNews !== "" && (
-          <div className="result">{isFakeNews ? "Fake news" : "True news"}</div>
+          <>
+            {isFakeNews ? toast.error("Fake News") : toast.success("True News")}
+          </>
         )}
       </section>
     </>
